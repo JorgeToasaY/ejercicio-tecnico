@@ -20,7 +20,7 @@ Además, se utiliza **PostgreSQL** como base de datos y **RabbitMQ** como broker
 ## 🧱 Estructura del Proyecto
 
 ```
-project-root/
+ejercicio-tecnico/
 │
 ├── customer-person/
 │   ├── Dockerfile
@@ -34,6 +34,9 @@ project-root/
 │
 ├── BaseDatos.sql
 ├── docker-compose.yml
+├── docker-compose.sh
+├── Plan De Pruebas.docx
+├── Microservicios_MiBanco_Postman_Collection.json
 └── README.md
 ```
 
@@ -43,7 +46,11 @@ project-root/
 
 ### 1. Compilar los microservicios y levantar contenedores
 
-
+## Ejecutar el archivo docker-compose.sh
+### Paso 1. Abrir PowerShell como administrador 
+### Paso 2. Dirigirse al directorio raiz del proyecto \ejercicio-tecnico
+### Paso 3. Copiar la intrucción: & "C:\Program Files\Git\bin\bash.exe" -c "./docker-compose.sh"
+### Paso 4. Presionar la tecla Enter
 ```bash
 cd customer-person
 mvn clean package -DskipTests
