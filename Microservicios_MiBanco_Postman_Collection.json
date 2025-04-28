@@ -1,0 +1,120 @@
+{
+  "info": {
+    "name": "Microservicios API - Cliente & Cuenta",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Cliente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Jose Lema\",\n    \"gender\": \"Masculino\",\n    \"age\": 30,\n    \"identification\": \"1234567890\",\n    \"address\": \"Otavalo sn y principal\",\n    \"phone\": \"098254785\",\n    \"password\": \"1234\",\n    \"state\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/clientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Cuenta",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"accountNumber\": \"478758\",\n    \"accountType\": \"Ahorro\",\n    \"initialBalance\": 2000,\n    \"state\": true,\n    \"customerId\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8085/api/cuentas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Registrar Movimiento",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"accountId\": 1,\n    \"movementType\": \"RETIRO\",\n    \"amount\": 575\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8085/api/movimientos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "api",
+            "movements"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reporte de Movimientos",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8085/api/reportes?fecha=2022-02-01,2022-02-10&cliente=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "api",
+            "reportes"
+          ],
+          "query": [
+            {
+              "key": "fecha",
+              "value": "2022-02-01,2022-02-10"
+            },
+            {
+              "key": "cliente",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
