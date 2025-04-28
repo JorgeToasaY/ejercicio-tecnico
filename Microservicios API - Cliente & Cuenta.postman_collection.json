@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "c7fbe47f-8bf5-41cc-b900-002178b89cb7",
+		"name": "Microservicios API - Cliente & Cuenta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8367193"
+	},
+	"item": [
+		{
+			"name": "Crear Cliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\": \"CUST0050\",\n    \"name\": \"Jorge Toasa\",\n    \"gender\": \"Masculino\",\n    \"age\": 37,\n    \"identification\": \"1234567803\",\n    \"address\": \"Pillaro San Miguelito\",\n    \"phone\": \"098254785\",\n    \"password\": \"1234\",\n    \"state\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"Pillaro San Miguelito\",\n    \"phone\": \"0980298828\",\n    \"state\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/CUST0050",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"CUST0050"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetClients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetClientById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Jose Lema\",\n    \"gender\": \"Masculino\",\n    \"age\": 30,\n    \"identification\": \"1234567890\",\n    \"address\": \"Otavalo sn y principal\",\n    \"phone\": \"098254785\",\n    \"password\": \"1234\",\n    \"state\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/CUST002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"CUST002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/CUST0011",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"CUST0011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rabbit",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "guest",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "guest",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Jose Lema\",\n    \"gender\": \"Masculino\",\n    \"age\": 30,\n    \"identification\": \"1234567890\",\n    \"address\": \"Otavalo sn y principal\",\n    \"phone\": \"098254785\",\n    \"password\": \"1234\",\n    \"state\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:15672/api/queues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "15672",
+					"path": [
+						"api",
+						"queues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Cuenta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountNumber\": \"12345001\",\n    \"accountType\": \"Ahorro\",\n    \"initialBalance\": 2000,\n    \"state\": true,\n    \"customerId\": \"CUST0050\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/cuentas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Cuenta",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"state\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/cuentas/478758",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"cuentas",
+						"478758"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccountByAccountNumber",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountNumber\": \"478758\",\n    \"accountType\": \"Ahorro\",\n    \"initialBalance\": 2000,\n    \"state\": true,\n    \"customerId\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/cuentas/12345001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"cuentas",
+						"12345001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Account",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/cuentas/478758",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"cuentas",
+						"478758"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar Movimiento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountNumber\": \"478758\",\n    \"movementType\": \"RETIRO\",\n    \"amount\": 3000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/movimientos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"movimientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reporte de Movimientos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/movimientos/reportes?customer=CUST002&desde=2025-04-27T00:00:00&hasta=2025-04-27T23:59:59",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"movimientos",
+						"reportes"
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "CUST002"
+						},
+						{
+							"key": "desde",
+							"value": "2025-04-27T00:00:00"
+						},
+						{
+							"key": "hasta",
+							"value": "2025-04-27T23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
